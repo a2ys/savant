@@ -30,8 +30,8 @@
           "url": "/tags"
         },
         {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
+          "name": "Privacy",
+          "url": "/privacy"
         }
       ]
     }
@@ -46,8 +46,8 @@
       "url": "/contact"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "Privacy",
+      "url": "/privacy"
     }
   ]
 }

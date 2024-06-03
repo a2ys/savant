@@ -45,10 +45,25 @@ const { title, description, meta_title, image } = entry.data;
         </div>
         <div class="sm:col-7 md:col-8">
           <form
-            class="contact-form row gy-2 justify-center"
+            class="contact-form row gy-2 justify-center needs-validation"
             method="POST"
+            id="form"
             action={contact_form_action}
+            data-astro-reload
+            novalidate
           >
+            <input
+              type="hidden"
+              name="access_key"
+              value="af834fbd-3947-4716-9fa5-dc01d86cc061"
+            />
+
+            <input
+              type="checkbox"
+              class="hidden"
+              style="display:none"
+              name="botcheck"
+            />
             <div class="lg:col-6">
               <label class="mb-2 block" for="name"
                 >Name <span class="text-red-600">*</span></label
@@ -59,6 +74,11 @@ const { title, description, meta_title, image } = entry.data;
                 type="text"
                 required
               />
+              <div
+                class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+              >
+                Please provide your full name.
+              </div>
             </div>
             <div class="lg:col-6">
               <label class="mb-2 block" for="email"
@@ -70,6 +90,12 @@ const { title, description, meta_title, image } = entry.data;
                 type="email"
                 required
               />
+              <div class="empty-feedback text-red-400 text-sm mt-1">
+                Please provide your email address.
+              </div>
+              <div class="invalid-feedback text-red-400 text-sm mt-1">
+                Please provide a valid email address.
+              </div>
             </div>
             <div class="col-12">
               <label class="mb-2 block" for="subject">Subject</label>
@@ -80,13 +106,91 @@ const { title, description, meta_title, image } = entry.data;
                 >Message <span class="text-red-600">*</span></label
               >
               <textarea class="form-textarea w-full" rows="4"></textarea>
+              <div
+                class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+              >
+                Please enter your message.
+              </div>
             </div>
             <div class="col-12">
-              <button class="btn btn-primary mt-2">Submit Now</button>
+              <button class="btn btn-primary mt-2">Send Message</button>
+              <div id="result" class="mt-3 text-center"></div>
             </div>
           </form>
+          <script src="https://web3forms.com/client/script.js" async defer
+          ></script>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    .invalid-feedback,
+    .empty-feedback {
+      display: none;
+    }
+
+    .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+      display: block;
+    }
+
+    .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+      display: block;
+    }
+
+    .is-invalid,
+    .was-validated :invalid {
+      border-color: #dc3545;
+    }
+  </style>
 </Base>
+
+<script is:inline>
+  const form = document.getElementById("form");
+  const result = document.getElementById("result");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    form.classList.add("was-validated");
+    if (!form.checkValidity()) {
+      form.querySelectorAll(":invalid")[0].focus();
+      return;
+    }
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    result.innerHTML = "Sending...";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          result.classList.add("text-green-500");
+          result.innerHTML = json.message;
+        } else {
+          console.log(response);
+          result.classList.add("text-red-500");
+          result.innerHTML = json.message;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        result.innerHTML = "Something went wrong!";
+      })
+      .then(function () {
+        form.reset();
+        form.classList.remove("was-validated");
+        setTimeout(() => {
+          result.style.display = "none";
+        }, 5000);
+      });
+  });
+</script>
