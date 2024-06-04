@@ -1,9 +1,15 @@
 ---
-title: "Savant is a community blog, where everyone has a chance to share their knowledge."
+title: ""
 meta_title: "About"
 draft: false
 
 ---
+
+##### Savant */ˈsavnt/*
+
+(**noun**) a person who has an exceptional aptitude in one particular field, such as music or mathematics, despite having significant impairment in other areas of intellectual or social functioning.
+
+##### Savant is a community blog, where everyone has a chance to share their knowledge.
 
 Savant started in early June of 2024 as a successor to my <a href="https://blog.a2ys.dev" target="_blank">old blog</a>. Compared to the previous blog, this blog has a new and required feature which is collaboration with other authors.
 
