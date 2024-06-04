@@ -4,9 +4,7 @@ description: "Privacy policy for the blog"
 draft: false
 ---
 
-#### Welcome to the Blog
-
-We’re super psyched to have you here! Your privacy is our top priority, and we want to make sure you have a clear picture of how we handle any data we collect while you're enjoying our blog. Here’s the lowdown:
+We’re super excited to have you here! Your privacy is our top priority, and we want to make sure you have a clear picture of how we handle any data we collect while you're enjoying our blog.
 
 #### Contact Information
 
