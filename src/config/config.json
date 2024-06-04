@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Blog",
+    "title": "Savant - a community blog",
     "base_url": "https://test-blog.a2ys.dev",
     "base_path": "/",
     "trailing_slash": false,
@@ -8,7 +8,7 @@
     "logo": "/images/logo.png",
     "logo_width": "200",
     "logo_height": "34",
-    "logo_text": "Blog"
+    "logo_text": "Savant"
   },
 
   "settings": {
