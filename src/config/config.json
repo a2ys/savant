@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Savant - a community blog",
-    "base_url": "https://test-blog.a2ys.dev",
+    "base_url": "https://savant.a2ys.dev",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
