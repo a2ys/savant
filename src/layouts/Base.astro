@@ -43,9 +43,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
-    <!-- theme meta -->
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
@@ -60,7 +58,6 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta name="generator" content={Astro.generator} />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <!-- google font css -->
     <AstroFont
       config={[
         {
@@ -84,24 +81,19 @@ const { title, meta_title, description, image, noindex, canonical } =
       ]}
     />
 
-    <!-- responsive meta -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=5"
     />
 
-    <!-- title -->
     <title>
       {plainify(meta_title ? meta_title : title ? title : config.site.title)}
     </title>
 
-    <!-- canonical url -->
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
 
-    <!-- noindex robots -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
-    <!-- meta-description -->
     <meta
       name="description"
       content={plainify(
@@ -111,10 +103,8 @@ const { title, meta_title, description, image, noindex, canonical } =
 
     <ViewTransitions />
 
-    <!-- author from config.json -->
     <meta name="author" content={config.metadata.meta_author} />
 
-    <!-- og-title -->
     <meta
       property="og:title"
       content={plainify(
@@ -122,7 +112,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
 
-    <!-- og-description -->
     <meta
       property="og:description"
       content={plainify(
@@ -135,7 +124,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
     />
 
-    <!-- twitter-title -->
     <meta
       name="twitter:title"
       content={plainify(
@@ -143,7 +131,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
 
-    <!-- twitter-description -->
     <meta
       name="twitter:description"
       content={plainify(
@@ -151,7 +138,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
 
-    <!-- og-image -->
     <meta
       property="og:image"
       content={`${config.site.base_url}${
@@ -159,7 +145,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
 
-    <!-- twitter-image -->
     <meta
       name="twitter:image"
       content={`${config.site.base_url}${
