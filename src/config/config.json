@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Savant - a community blog",
+    "title": "Savant",
     "base_url": "https://savant.a2ys.dev",
     "base_path": "/",
     "trailing_slash": false,
@@ -19,7 +19,7 @@
   "metadata": {
     "meta_author": "Aayush Shukla",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Blog"
+    "meta_description": "A community blog from a2ys"
   },
 
   "params": {
