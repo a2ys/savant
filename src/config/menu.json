@@ -13,7 +13,11 @@
       "url": "/contact"
     },
     {
-      "name": "Pages",
+      "name":"Privacy",
+      "url": "/privacy"
+    },
+    {
+      "name": "More",
       "url": "",
       "hasChildren": true,
       "children": [
@@ -28,10 +32,6 @@
         {
           "name": "Tags",
           "url": "/tags"
-        },
-        {
-          "name": "Privacy",
-          "url": "/privacy"
         }
       ]
     }
